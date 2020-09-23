@@ -18,10 +18,6 @@ table, tr, td{
 </style>
 <script>
 
-<!-- JavaScript goes here -->
-
-
-
 </script>
 
 <h1>Workshop 3: JavaScript Events</h1>
@@ -29,11 +25,10 @@ table, tr, td{
 <p>In this exercise we will practice the use of BOM and the JavaScript events. Use the lecture-material as a reference guide side by side these exercises. It might also be a 
 good idea to save the lines of code you write during the exercises for later use.</p>
 
-
 <h2>Exercise 1</h2>
 <p>&nbsp;Below you will see three buttons. Edit the source code and add an onClick-events to these buttons.</p>
 <p>
-  <button>Button 1</button>
+  <button onclick="alert('You clicked me')">Button 1</button>
   <button>Button 2</button>
   <button>Button 3</button>
 </p>
@@ -111,7 +106,8 @@ var persons = ["Nyssa P. Skinner", "593-4241 Lacus, St.","Cape Verde",
 </xmp>
 </ul>
 
-<h2>Exercise 2</h2>
+<h2 onmouseover="console.log('Stepped over my a mouse!')"
+    onmouseout="alert('Bye bye mouse!')">Exercise 2</h2>
 
 <ul>
   <li>Add an&nbsp;onMouseOver event on the&nbsp;Heading "Exercise 2" of this page.&nbsp;It should&nbsp;fire when the users mouse is moved
