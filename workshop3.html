@@ -115,6 +115,10 @@ table, tr, td{
     document.write(taulu);
 }
 
+function tekstiKentta(){
+document.getElementById("textdata").value = "Please fill in the form with proper data."
+}
+
 
 </script>
 
@@ -224,7 +228,7 @@ modifying the background color of the box as well. &nbsp;
 command:   <i>document.getElementById("textdata").value</i>. We will study the forms deeper in Workshops 4 and 5.</li>
 </ul>
 <form>
-  <textarea id="textdata"></textarea><br>
+  <textarea id="textdata", onfocus=tekstiKentta()></textarea><br>
     <button>Send me</button>
 </form>
 <h2>Exercise 4</h2>
