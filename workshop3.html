@@ -18,6 +18,104 @@ table, tr, td{
 </style>
 <script>
 
+var pvm = new Date();
+
+function showTable() {
+var html = `
+<style>
+
+table, tr, td{
+  border: 1px solid black;
+  width: 50%;
+}
+
+</style>
+  <h1>table </h1>
+  <br>
+  <table id="example" class="display" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Position</th>
+                <th>Salary</th>
+            </tr>
+        </thead>
+        <tfoot>
+        </tfoot>
+        <tbody>
+            <tr>
+                <td>Tiger Nixon</td>
+                <td>System Architect</td>
+                <td>$320,800</td>
+            </tr>
+            <tr>
+                <td>Garrett Winters</td>
+                <td>Accountant</td>
+                <td>$170,750</td>
+            </tr>
+            <tr>
+                <td>Ashton Cox</td>
+                <td>Junior Technical Author</td>
+                <td>$86,000</td>
+            </tr>
+            <tr>
+                <td>Cedric Kelly</td>
+                <td>Senior Javascript Developer</td>
+                <td>$433,060</td>
+            </tr>
+            <tr>
+                <td>Airi Satou</td>
+                <td>Accountant</td>
+                <td>$162,700</td>
+            </tr>
+
+        </tbody>
+    </table>
+    </br>
+`
+document.write(html);
+}
+
+
+function joojoo() {
+
+var persons = ["Nyssa P. Skinner", "593-4241 Lacus, St.","Cape Verde", 
+	       "Camilla F. Strickland","391-2150 Ac Rd.","Andorra",
+	       "Reagan U. Andrews", "P.O. Box 472, 2271 Mauris Ave","Faroe Islands",
+	       "Kelsey D. Clark", "P.O. Box 866, 7793 Aliquet Ave","Bulgaria"
+];
+
+var taulu = `
+<style>
+
+table, tr, td{
+  border: 1px solid black;
+  width: 50%;
+}
+
+</style>
+<table>
+<tr><th>Name</th>
+<th>Address</th>
+<th>Country</th></tr>
+
+`
+    for(var i=0; i<persons.length; i++) {
+        if (i % 3 == 0 ) {
+        taulu += "<tr>";
+        }
+
+        taulu += "<td>" + persons[i] + "</td>";
+        
+        }
+        
+         
+
+    taulu+="</table>";
+    document.write(taulu);
+}
+
+
 </script>
 
 <h1>Workshop 3: JavaScript Events</h1>
@@ -28,9 +126,9 @@ good idea to save the lines of code you write during the exercises for later use
 <h2>Exercise 1</h2>
 <p>&nbsp;Below you will see three buttons. Edit the source code and add an onClick-events to these buttons.</p>
 <p>
-  <button onclick="alert('You clicked me')">Button 1</button>
-  <button>Button 2</button>
-  <button>Button 3</button>
+  <button onclick="alert('You clicked me ' + pvm.getDate() + '.' + (pvm.getUTCMonth()+1)+ '.'+ pvm.getFullYear() + ' - ' + pvm.getHours()+':'+ pvm.getMinutes())">Button 1</button>
+  <button onclick="showTable()">Button 2</button>
+  <button onclick="joojoo()">Button 3</button>
 </p>
 
 <ul>
