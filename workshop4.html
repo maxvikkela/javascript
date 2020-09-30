@@ -22,7 +22,54 @@ img {
 </style>
 <script>
 
-<!-- JavaScript goes here -->
+var p = document.getElementsByTagName('h1');
+var x = document.getElementsByTagName('h2');
+var q = document.getElementsByTagName('p');
+var s = document.getElementsByClassName('surprise');
+
+
+
+function otsikko() {
+  p[0].innerHTML = "Modified Heading!";
+}
+
+function tyyli() {
+
+  x[1].style = "font-size: 30px; color: red; background-color: green; font-family: verdana";
+  
+}
+
+function hyvaHomma() {
+
+document.body.bgColor = "lightgrey";
+q[3].innerHTML += "<span style ='font-family: italics;'><br><br>\"<em><strong>Lorem ipsum</strong></em><em> dolor sit amet, consectetuer adipiscing elit. Sed posuere interdum sem. Quisque ligula eros ullamcorper quis, lacinia quis facilisis sed sapien. Mauris varius diam vitae arcu. Sed arcu lectus auctor vitae, consectetuer et venenatis eget velit.</em> \"</span>"
+
+}
+
+function hide() {
+
+var d = document.getElementById('data');
+d.style.display = 'none';
+  
+}
+
+function show() {
+var d = document.getElementById('data');
+d.style.display = 'block';
+}
+
+function ullatus() {
+  
+  for (var i = 0; i < s.length; i++) {
+  s[i].style = "font-size: 20px";
+  }
+}
+
+function alertti() {
+  
+  var o = document.getElementById("mySelect").value;
+  alert(o);
+}
 
 
 </script>
@@ -35,9 +82,9 @@ img {
 <h2>Exercise 1: Basic  DOM Manipulation</h2>
 <p>&nbsp;Below you will see three buttons. Edit the source code and add an onClick-events to these buttons. Use Developer Console to find the </p>
 <p>
-  <button onclick="">Button 1</button>
-  <button onclick="">Button 2</button>
-  <button onclick="">Button 3</button>
+  <button onclick="otsikko()">Button 1</button>
+  <button onclick="tyyli()">Button 2</button>
+  <button onclick="hyvaHomma()">Button 3</button>
 </p>
 
 <ul>
@@ -61,7 +108,7 @@ img {
     Show me</label>
   <br>
   <label>
-    <input type="checkbox" name="CheckboxGroup1" value="3" id="CheckboxGroup1_2"> 
+    <input onchange="ullatus()" type="checkbox" name="CheckboxGroup1" value="3" id="CheckboxGroup1_2"> 
     <span id="surpise">Surprise</span>
   </label>
 </p>
@@ -76,7 +123,7 @@ img {
 <li>When the mouse is moved on top of the image, a colored border should appear surrounding it. On mouse out, border should disappear</li>
 <li>When you have accomplished the above, change the image (id=&quot;carimage&quot;) below based on the users choice on the pulldown menu below. Find appropriate images from the web.
   <p>Select a new car from the list.</p>
-  <select name="mySelect" id="mySelect" onchange="">
+  <select name="mySelect" id="mySelect" onchange="alertti()">
     <option value="BMW">BMW         
     <option value="Audi">Audi
     <option value="Mercedes">Mercedes
@@ -84,7 +131,7 @@ img {
   </select>
   <br>
   <br>
-<img onmouseover="" onmouseout="" style="left: 0px; opacity: 1;" src="http://cdn.bmwblog.com/wp-content/uploads/2015/11/BMW-2-Series-Gran-Coupe-Rendering.jpg" width="400" id="carimage"/></li>
+<img onmouseover="this.style.border = '1px solid'" onmouseout="this.style.border = 'none'" style="left: 0px; opacity: 1;" src="http://cdn.bmwblog.com/wp-content/uploads/2015/11/BMW-2-Series-Gran-Coupe-Rendering.jpg" width="400" id="carimage"/></li>
 <h2>Exercise 4: Moving things around</h2>
 <ul>
   <li>
