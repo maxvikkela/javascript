@@ -19,8 +19,32 @@ table, tr, td{
 
 <script>
 
+function getData() {
+
+var kohde = document.getElementById('destination').value;
+localStorage.setItem('Destination', kohde);
+
+var paiva = document.getElementById('arrival').value;
+localStorage.setItem('Arrival Date', paiva);
+
+var netti = document.getElementById('CheckboxGroup1_0');
+localStorage.setItem("Internet", netti.checked);
+
+var ilmastointi = document.getElementById('CheckboxGroup1_1');
+localStorage.setItem("Air Conditioning", ilmastointi.checked);
+
+var minibaari = document.getElementById('CheckboxGroup1_2');
+localStorage.setItem("Minibar", minibaari.checked);
+
+var auto = document.getElementById('CheckboxGroup1_3');
+localStorage.setItem("Car Rent", auto.checked);
+
+var sauna = document.getElementById('CheckboxGroup1_4');
+localStorage.setItem("Sauna", sauna.checked);
 
 }
+
+
 
 </script>
 <!-- exercise #2 -->
