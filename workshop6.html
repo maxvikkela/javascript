@@ -44,12 +44,26 @@ localStorage.setItem("Sauna", sauna.checked);
 
 }
 
+function tulostus() {
+
+    var textbox = document.getElementById("sessiondata");
+
+    textbox.innerHTML = "Destination: " + localStorage.getItem("Destination") 
+  + "<br> Arrival Date: " + localStorage.getItem("Arrival Date")
+  + "<br> Internet: " + localStorage.getItem("Internet") 
+  + "<br>  Air Conditioning: " + localStorage.getItem("Air Conditioning")
+  + "<br> Minibar: " + localStorage.getItem("Minibar")
+  + "<br>  Car Rent: " + localStorage.getItem("Car Rent")
+  + "<br> Sauna: " + localStorage.getItem("Sauna");
+  
+}
+
 
 
 </script>
 <!-- exercise #2 -->
 
-<body onload="">
+<body onload="tulostus()">
 
 <h1>Workshop 6: Using Localstorage</h1>
 <hr />
@@ -66,7 +80,7 @@ modify this data using the developer tools.</p>
   <label for="textfield">Arrival Date:</label>
   <input type="text" name="textfield" id="arrival">
   <br>
-  <div id="services">
+  <div id="services" style="height: 125px; width: 150px";>
   Services:
   <label>
     <br>
@@ -107,7 +121,7 @@ piece of code to this page, which will check if there is saved data available fr
 assignment, and load them into a div with an id="sessionData". This should happen when the 
 page is loaded, because we want the data to be loaded then as well. HINT: use onLoad -
 event on the body tag.</p>
-<div id="sessiondata">Session data goes here!</div>
+<div id="sessiondata" style="height: 135px; width: 170px;">Session data goes here!</div>
 <h2>Exercise 3: Sessionstorage vs. localstorage</h2>
 <p>Compare sessionstorage and localstorage. Think of a few examples on where each 
 should be used. Copy the form above here and implement sessionstorage for it. See what 
