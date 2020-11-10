@@ -1,5 +1,58 @@
-<html><head><link href="/learning/styles/default.css" rel="stylesheet" type="text/css" /></head>
-<body><div>
+<html>
+<head>
+<link href="/learning/styles/default.css" rel="stylesheet" type="text/css" /></head>
+
+<script>
+
+function parseData() {
+
+	var q = document.getElementsByTagName("quote");
+	var a = document.getElementsByTagName("author");
+	var taulu = "<table>";
+
+	for (var i = 0; i < 2 ; i++) {
+		taulu += "<tr><td>" + q[i].innerHTML + "</td> <td>" + a[i].innerHTML + "</td></tr>";
+	}
+	taulu+="</table>";
+
+
+	document.getElementById("haloo").innerHTML = taulu;
+
+
+	}
+	
+
+
+function loadXMLDoc() {
+            
+            var xmlhttp = new XMLHttpRequest();
+            
+            xmlhttp.open("GET", "http://quotes.rest/qod.xml", true);
+            xmlhttp.send();
+            xmlhttp.onreadystatechange = function() {
+                if(xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+					 
+                    document.getElementById("quotes").innerHTML = xmlhttp.responseText;
+                }
+            }
+		}
+		
+function parseXML() {
+	
+	var xmlhttp = new XMLHttpRequest();
+            
+            xmlhttp.open("GET", "http://quotes.rest/qod.xml", true);
+            xmlhttp.send();
+            xmlhttp.onreadystatechange = function() {
+				if(xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+
+
+}
+
+</script>
+
+<body>
+<div>
 <h1>Workshop 7: Using AJAX and parsing XML</h1>
 </div>
 <div><hr /></div>
@@ -19,8 +72,8 @@ and start doing the exercises.</p>
 </div>
 <p>This page has XML data embedded into it. See page source, line 78. The browser cannot display it properly, but its there. Below you can also see the structure data. Write a function called parseData(), which 
 will output the quote and author tags from XML when button is clicked. Hint: Use document.getElementsByTagName() function. See PowerPoint for reference.</p>
-<div><input id="Fetch" name="Fetch" type="button" value="Button" /></div>
-<div>
+<div><input id="Fetch" name="Fetch" type="button" value="Button" onclick="parseData()"/></div>
+<div id="haloo"></div>
 <pre>
 <!-- THIS IS HERE ONLY FOR DISPLAYing THE STRUCTURE OF THE XML DATA IN THE BROWSER -->
   I'm not concerned about all hell breaking loose, but that a PART of hell will break loose... it'll be much harder to detect.
@@ -96,7 +149,7 @@ file to a div below (id=�quotes�). Here's another alternative: http://quotes
 </div>
 <div>&nbsp;</div>
 <div>
-<p><input id="Fetch2" name="Fetch2" type="button" value="Button" /></p>
+<p><input id="Fetch2" name="Fetch2" type="button" value="Button" onclick="loadXMLDoc()" /></p>
 </div>
 <div>
 <div id="quotes">&nbsp;</div>
@@ -110,7 +163,7 @@ file to a div below (id=�quotes�). Here's another alternative: http://quotes
 <p>Continue working from exercise 2. Once you have injected the results, JavaScript to parse the XML/JSON-file and output the file contents in a nice HTML-table below. Add some styles to the table.</p>
 </div>
 <div>
-<p><input id="Fetch3" name="Fetch3" type="button" value="Button" /></p>
+<p><input id="Fetch3" name="Fetch3" type="button" value="Button" onclick="parseXML()"/></p>
 </div>
 <div>
 <div id="tabledata">
