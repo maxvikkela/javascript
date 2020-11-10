@@ -11,11 +11,9 @@ function parseData() {
 	var taulu = "<table>";
 
 	for (var i = 0; i < 2 ; i++) {
-		taulu += "<tr><td>" + q[i].innerHTML + "</td> <td>" + a[i].innerHTML + "</td></tr>";
+		taulu += "<tr><td>" + q[i].innerHTML + "</td> <td>" + "--" +  a[i].innerHTML + "</td></tr>";
 	}
-	taulu+="</table>";
-
-
+	
 	document.getElementById("haloo").innerHTML = taulu;
 
 
@@ -37,21 +35,40 @@ function loadXMLDoc() {
             }
 		}
 		
-function parseXML() {
-	
-	var xmlhttp = new XMLHttpRequest();
-            
-            xmlhttp.open("GET", "http://quotes.rest/qod.xml", true);
-            xmlhttp.send();
-            xmlhttp.onreadystatechange = function() {
-				if(xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-					var xmlDoc = xmlhttp.responseXML;  
-					
+function parseXML(){
+    var xmlhttp = new XMLHttpRequest();
 
+    xmlhttp.open("GET", "http://quotes.rest/qod.xml", true);
+    xmlhttp.send();
+    xmlhttp.onreadystatechange = function() {
+    if(xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 
+        var xmlDoc = xmlhttp.responseXML;
+        var q = xmlDoc.getElementsByTagName("quote");
+		var a = xmlDoc.getElementsByTagName("author");
+
+        for	( i = 0; i < q.length; i++){
+            quote = q[i].childNodes[0].nodeValue + "<br>";
+        }
+
+        document.getElementById("tabledata").getElementsByTagName("td")[2].innerHTML += quote;
+        document.getElementById("tabledata").getElementsByTagName("td")[3].innerHTML = a[0].childNodes[0].nodeValue
+
+    }
+}
 }
 
+
 </script>
+
+<style>
+
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+</style>
 
 <body>
 <div>
@@ -176,8 +193,6 @@ file to a div below (id=�quotes�). Here's another alternative: http://quotes
 <td><strong>Author</strong></td>
 </tr>
 <tr>
-<td>Here goes the quote data</td>
-<td>Here goes the author data</td>
 </tr>
 <tr>
 <td>&nbsp;</td>
